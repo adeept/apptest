@@ -521,7 +521,7 @@ if __name__ == '__main__':
     switch.set_all_switch_off()
 
     HOST = ''
-    PORT = 10223                              #Define port serial 
+    PORT = 10123                              #Define port serial 
     BUFSIZ = 1024                             #Define buffer size
     ADDR = (HOST, PORT)
 
@@ -540,10 +540,10 @@ if __name__ == '__main__':
     while  1:
         wifi_check()
         try:                  #Start server,waiting for client
-            start_server = websockets.serve(main_logic, '0.0.0.0', 8888)
+            start_server = websockets.serve(main_logic, '0.0.0.0', 5555)
             asyncio.get_event_loop().run_until_complete(start_server)
             print('waiting for connection...')
-            # print('...connected from :', addr)
+            # print('...connected from :', addr) 
             break
         except Exception as e:
             print(e)
